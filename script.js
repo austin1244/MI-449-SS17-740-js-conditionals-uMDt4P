@@ -9,10 +9,14 @@ if(name.length > 15){
 
 var option = ""
 while(option != "left" || option != "right"){
-  option = window.prompt(name+"!!! There is a car comming at us! should we go right or left???");
+  option = window.prompt(name+"!!! There is a car comming at us! should we go right, left or nothing???");
   option = option.trim().toLowerCase();
   if(option === "left"){
     alert("you dove into a another car and died :(");
+    exit();
+  }
+  else if(option === "nothing"){
+    alert("You Did nothing and the car hit you and you died :(");
     exit();
   }
   else if(option === 'right'){
@@ -24,15 +28,34 @@ while(option != "left" || option != "right"){
 }
 
 option = "";
+
 while(option != "left" || option != "right"){
+  var carCommingLeft = Math.floor(Math.random() * 209) % 2;
+  var carCommingRight = Math.floor(Math.random() * 209) % 2;
+
   option = window.prompt("you dodged the car, but there is another car comming!!! right or left?");
   option = option.trim().toLowerCase();
-  if(option == "right"){
+
+  if(option === "right")
+    option = carCommingRight? "died" : "survived";
+  if(option == "left")
+    option = carCommingLeft? "died" : "survived";
+
+
+  if(option === "died"){
    alert("you dove into a another car and died :(");
    break;
   }
-  else if(option === "left"){
-   alert("You dodged the car and survived. Congratz!!!");
+  else if(option === "survived"){
+   alert("You dodged the car and survived.");
+   option = window.prompt("You Won!!! enter Any number to get a random prize");
+   option = parseInt(option);
+   if(option % 2 === 0){
+     alert("You won a dog!");
+   }
+   else{
+     alert("You won a cat!");
+   }
    break;
   }
   else{
