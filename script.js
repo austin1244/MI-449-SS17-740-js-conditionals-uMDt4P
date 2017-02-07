@@ -9,7 +9,7 @@ if (name.length > 15) {
 }
 
 var option = ''
-while (option !== 'left' || option !== 'right' && !isDead) {
+while ((option !== 'left' || option !== 'right') && !isDead) {
   option = window.prompt(name + '!!! There is a car comming at us! should we go right, left or nothing???')
   option = option.trim().toLowerCase()
   if (option === 'left') {
@@ -28,7 +28,7 @@ while (option !== 'left' || option !== 'right' && !isDead) {
 }
 
 option = ''
-while (option !== 'left' || option !== 'right' && !isDead) {
+while ((option !== 'left' || option !== 'right') && !isDead) {
   var carCommingLeft = Math.floor(Math.random() * 209) % 2
   var carCommingRight = Math.floor(Math.random() * 209) % 2
 
