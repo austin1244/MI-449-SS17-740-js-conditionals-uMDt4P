@@ -1,3 +1,4 @@
+var isDead = false
 var name = window.prompt('what is your name?')
 if (name.length > 15) {
   window.alert('Whoa! that is a long name!')
@@ -8,13 +9,17 @@ if (name.length > 15) {
 }
 
 var option = ''
-while (option !== 'left' || option !== 'right') {
+while (option !== 'left' || option !== 'right' && !isDead) {
   option = window.prompt(name + '!!! There is a car comming at us! should we go right, left or nothing???')
   option = option.trim().toLowerCase()
   if (option === 'left') {
     window.alert('you dove into a another car and died :(')
+    isDead = true
+    break
   } else if (option === 'nothing') {
     window.alert('You Did nothing and the car hit you and you died :(')
+    isDead = true
+    break
   } else if (option === 'right') {
     break
   } else {
@@ -23,8 +28,7 @@ while (option !== 'left' || option !== 'right') {
 }
 
 option = ''
-
-while (option !== 'left' || option !== 'right') {
+while (option !== 'left' || option !== 'right' && !isDead) {
   var carCommingLeft = Math.floor(Math.random() * 209) % 2
   var carCommingRight = Math.floor(Math.random() * 209) % 2
 
@@ -40,6 +44,7 @@ while (option !== 'left' || option !== 'right') {
 
   if (option === 'died') {
     window.alert('you dove into a another car and died :(')
+    isDead = true
     break
   } else if (option === 'survived') {
     window.alert('You dodged the car and survived.')
